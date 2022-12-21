@@ -1,43 +1,46 @@
 ﻿using System;
 
-namespace project1
+namespace project2
 {
     internal class Program
     {
         static void Main(string[] args)
+       
         {
-            // Ask user for two numbers
-            Console.Write("Please enter the first number: ");
+            // Input the two numbers
+            Console.Write("Enter first number: ");
+
             int n1 = int.Parse(Console.ReadLine());
-            Console.Write("Please enter the second number: ");
+      
+            Console.Write("Enter second number: ");
+
             int n2 = int.Parse(Console.ReadLine());
 
             // Print the list of perfect numbers
             Console.WriteLine("Perfect numbers between {0} and {1} are: ", n1, n2);
 
-            // Create a loop to iterate from n1 to n2
+
+            // Create a loop to check if the number is perfect
             for (int i = n1; i <= n2; i++)
             {
-                int count = 0;
-
-                // Create a loop to check if the number is prime
-                for (int j = 2; j <= i / 2; j++)
+                int sum = 0;
+                for (int j = 1; j < i; j++)
                 {
                     if (i % j == 0)
                     {
-                        count++;
-                        break;
+                        sum += j;
                     }
                 }
-
-                // If the number is prime, print i
-                if (count == 0 && i != 1)
+                
+                if (sum == i)
+                // If the number is perfect, print i
                 {
-                    Console.WriteLine(i + " ");
-                    Console.WriteLine("*****");
+                    Console.WriteLine("{0} ", i);
+                    Console.WriteLine("*******");
                 }
             }
         }
     }
 }
+    
 
